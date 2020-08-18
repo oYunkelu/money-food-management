@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>アプリケーション</title>
+<!--<script src="jquery-2.1.3.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  
+<style>
+  body{
+    margin:0;
+    padding:0;
+    text-align:left;
+    /*font-size: 32px;*/
+    background-color: #fff;
+    perspective: 400px;
+}
+header{
+    background-color: #99FF66;
+    border-bottom: 1px solid #fff;
+    text-align: center;
+}
+h1{
+    color: white;
+}
+h2{
+   /*float: left;*/
+   color: #000;
+   font-size: 30px;
+   padding-bottom: 0 auto;
+   padding-left: 50px;
+}
+
+
+main{
+    border-bottom:1px solid #ccc;
+    position:relative;
+    background-color: #fff;
+}
+footer{
+    background-color: #fff;
+    border-bottom:1px solid #ccc;
+    text-align: center;
+}
+
+label { font-size: 60px; }
+div { 
+  float: right;
+  width: 100px; 
+  margin-right: 0px;
+  margin-bottom: 20px;
+  color: #000;/*#FF6600*/
+}
+
+
+/*main p{
+    font-size:200%;
+    text-align: center;
+    border-bottom:1px solid #fff;
+    height:200px;
+}
+
+main ul{
+    padding: 0;
+    /*border-top: 1px solid #000000;*/
+    /*display:table;  /* 定義 */
+    /*table-layout: fixed;
+    width:100%;
+}
+
+main li {
+   list-style-type:none;
+    border: 1px solid #fff;
+    background-color: skyblue;
+    display:table-cell;  /* 定義 */
+    /*cursor: pointer;
+}*/
+
+
+/*セレクトメニュー*/
+.dropholder{
+  width: 322px;
+  height: 60px;
+  margin:100px auto;
+  padding:0 0 0 20px;
+  border-radius:10px;
+  font:18px arial;
+  color: #fff;
+  position: relative;
+  box-sizing:border-box;
+  border:1px solid #9b0db9;
+  animation: move 3s ease-in-out infinite;
+  position: relative;
+}
+.dropholder:hover, .dropholder:hover:after{
+  animation-play-state:paused;
+}
+.dropholder:after{
+  content:"";
+  position: absolute;
+  width: 250px;
+  height: 5px;
+  background:rgba(0,0,0, 0);
+  display: block;
+  top:100px;
+  left:37px;
+  margin: auto;
+  border-radius:50%;
+  box-shadow:0 15px 10px rgba(0,0,0, 0.4);
+  animation: moveShadow 3s ease-in-out infinite;
+}
+p{
+  float: left;
+  line-height:60px;
+　/*font-size: 10px;*/
+}
+.dropdown > p{
+  font-size:16px;
+}
+.dropdown, .dropholder{
+  background:linear-gradient(#da4df8 ,#9b0db9);
+}
+.dropdown{
+  margin-left:20px;
+  float: left;
+  width: 208px;
+  padding:0 0 0 20px;
+  border-radius:0 10px 10px 0;
+  cursor: pointer;
+  height:58px;
+  border-left:1px solid #da4df8;
+  position: relative;
+}
+.dropdown:hover{
+  background:linear-gradient(#da4df8 ,#b11cd0);
+}
+.dropdown:after{
+  content:"▾";
+  font-size: 18px;
+  position: absolute;
+  right:20px;
+  top:18px;
+  display: block;
+}
+
+.menu{
+  position: absolute;
+  right:0;
+  top:70px;
+  width: 228px;
+  cursor: pointer;
+  opacity:0;
+  transform-style: preserve-3d;
+  transform:rotatey(180deg) rotateX(5deg) translatey(100px);
+  backface-visibility: hidden;
+  background:linear-gradient(#4dc2f8 ,#0d82b9);
+  border:2px solid #0d82b9;
+  border-radius:10px;
+  transition:all 0.8s;
+  z-index:5;
+  overflow:hidden;
+}
+.menu li{
+  padding: 10px 10px;
+  border-bottom:1px dotted #fff;
+  color:#e8f8ff; 
+  transition:all 0.3s;
+}
+.menu li:hover{
+  background:#61ccfd;
+  padding-left:20px;
+}
+.menu li:last-child{
+  border:none;
+}
+
+.showMenu{
+   opacity:1;
+  transform:rotateX(0deg) translatey(0px);
+}
+li > i{
+  float: left;
+  padding-top: 3px;
+  padding-right: 8px;
+}
+p > i{
+ position: relative;
+ top:2px;
+}
+i{
+  opacity: 0.7;
+}
+@keyframes move{
+  0%, 100%{transform:translateY(-10px);}
+  50%{transform:translateY(0);}
+}
+
+@keyframes moveShadow{
+  0%,100%{transform:translateY(10px);opacity:0.4;}
+  50%{transform:translateY(0);opacity:1;}
+}
+  
+  
+
+
+
+li#save{
+    /*position: relative;*/
+    left: 300px;
+    margin-top: 30px;
+    background-color:skyblue;
+  
+  
+    list-style-type:none;
+    border: 1px solid #fff;
+    background-color: skyblue;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+    float: left;
+    position: relative;
+    top: 30px;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 70px;
+    border-radius: 70px;
+    -moz-border-radius: 70px;
+    -webkit-border-radius: 70px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition:all 0.5s ease;
+    color: #FFFFFF;
+    padding: 40px 40px 23px 23px;
+    display: block;
+    
+    font-weight: bold;
+    font-size: 100%; 
+    text-align: center;
+}
+
+
+li#clear{
+    /*position: relative;*/
+    left: 400px;
+    margin-top: 30px;
+    background-color:skyblue;
+ 
+  
+    list-style-type:none;
+    border: 1px solid #fff;
+    background-color: skyblue;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+    float: left;
+    position: relative;
+    top: 30px;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 70px;
+    border-radius: 70px;
+    -moz-border-radius: 70px;
+    -webkit-border-radius: 70px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition:all 0.5s ease;
+    color: #FFFFFF;
+    padding: 40px 40px 23px 23px;
+    display: block;
+    
+    font-weight: bold;
+    font-size: 100%; 
+    text-align: center;
+}
+
+li#save:hover{
+    background: #0066CC;
+    color: skyblue;
+    -webkit-transform: scale( 1.5 );
+    -moz-transform: scale( 1.5 );
+}
+li#clear:hover{
+    background: #0066CC;
+    color: skyblue;
+    -webkit-transform: scale( 1.5 );
+    -moz-transform: scale( 1.5 );
+}
+
+li.btn {
+  position: relative;
+  left: 400px;
+  margin-top: 30px;
+  background-color:midnightblue;
+}
+/*a {
+    width: 100px;
+    color: skyblue;
+    height: 100px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 800px;
+    -moz-border-radius: 800px;
+    -webkit-border-radius: 800px;
+    font-weight: bold;
+}*/
+textarea{
+  /*display:table-cell;  /* 定義 */
+  float: right;
+  margin-top:  0 auto;
+  margin-right: 45px;
+  padding-top:  0 auto;
+  padding-bottom: 10px;
+  
+  width: 75%;/*95*/
+  height: 40px;/*230*/
+  font-size:120%;
+  /*border: solid 1px #000;/*#FF6600*/
+  /*border-radius: px;/*角の丸み*/
+  /*box-shadow: 3px 3px 3px 1px #000;*/
+}
+
+
+#site_map{
+  margin-top: 330px;
+  float: left;
+  
+}
+/*footer {
+  border-top: 1px solid #778899;
+}*/
+footer li,footer a{
+  display: block;
+}
+footer li {
+  /*float: left;*/
+  margin: 50px;
+}
+footer a {
+	margin-left:45px;
+    margin-right:45px;
+	padding:23px;
+    text-align: center;
+	font-size: xx-large;
+	color: #FFFFFF;
+    background-color: dodgerblue;
+    /*border-top: 5px solid #FFFFFF;
+    border-bottom: 40px solid #FFFFFF;*/	
+}
+footer a:hover {
+	background-color: dodgerblue;
+	opacity:0.5;
+}
+/*#current a {
+	background-color: skyblue;
+	opacity:0.4;
+}*/
+
+#view{
+  background-color: #ccc;
+}
+
+</style>  
+  
+  
+<script>
+$(function(){
+
+  //この中に処理を記述 開始
+   //$("main").hide().show(4000).animate(/*{top:100,left:100},*/1000);
+  
+  //セレクトメニュー
+  $(document).ready(function(){
+  
+  $(".dropdown").click(function(){
+    $(".menu").toggleClass("showMenu");
+      $(".menu > li").click(function(){
+        $(".dropdown > p").html($(this).html());
+          $(".menu").removeClass("showMenu");
+      });
+  });
+  
+});
+  
+  
+
+  //1.Save クリックイベント
+  $("#save").on("click",function() {
+    let value1 = $("#text_area1").val();
+    localStorage.setItem("memo1",value1);
+    let value2 = $("#text_area2").val();
+    localStorage.setItem("memo2",value2);
+    let value3 = $("#text_area3").val();
+    localStorage.setItem("memo3",value3);
+    let value4 = $("#text_area4").val();
+    localStorage.setItem("memo4",value4);
+    let value5 = $("#text_area5").val();
+    localStorage.setItem("memo5",value5);
+    
+    if($("#checkbox1").css('content','\f046') == true) {
+      let v = $("#checkbox").css('content', '\f046');
+      localStorage.setItem("memo",v);
+      //localStorage.setItem("memo",)
+    } else {
+      
+    }
+     
+    alert("Saveしました！");
+  });
+
+  
+  //2.clear クリックイベント
+  $("#clear").on("click",function() {
+    localStorage.removeItem("memo1");
+    $("#text_area1").val("");
+    localStorage.removeItem("memo2");
+    $("#text_area2").val("");
+    localStorage.removeItem("memo3");
+    $("#text_area3").val("");
+    localStorage.removeItem("memo4");
+    $("#text_area4").val("");
+    localStorage.removeItem("memo5");
+    $("#text_area5").val("");
+    $('#checkbox').removeAttr('checked');
+    
+    /*var checkbox = document.getElementById( "checkbox" );
+    checkbox.checked = false;*/
+    alert("Clearします…");
+  });
+      
+  
+  //3.ページ読み込み：保存データ取得表示
+  if(localStorage.getItem("memo1")){
+     //let checked = localStorage.getItem("check");
+     let value1 = localStorage.getItem("memo1");
+     //$("#box1").checkOn(checked);
+     $("#text_area1").val(value1);
+  }
+  if(localStorage.getItem("memo2")){
+     //let checked = localStorage.getItem("check");
+     let value2 = localStorage.getItem("memo2");
+     //$("#box1").checkOn(checked);
+     $("#text_area2").val(value2);
+  }
+   if(localStorage.getItem("memo3")){
+     //let checked = localStorage.getItem("check");
+     let value3 = localStorage.getItem("memo3");
+     //$("#box1").checkOn(checked);
+     $("#text_area3").val(value3);
+  }
+   if(localStorage.getItem("memo4")){
+     //let checked = localStorage.getItem("check");
+     let value4 = localStorage.getItem("memo4");
+     //$("#box1").checkOn(checked);
+     $("#text_area4").val(value4);
+  }
+   if(localStorage.getItem("memo5")){
+     //let checked = localStorage.getItem("check");
+     let value5 = localStorage.getItem("memo5");
+     //$("#box1").checkOn(checked);
+     $("#text_area5").val(value5);
+     
+  if(localStorage.getItem("memo")){
+     //let checked = localStorage.getItem("check");
+     let result = localStorage.getItem("memo");
+     //$("#box1").checkOn(checked);
+     $("#box1").css('content','\f046'); 
+     
+  }
+     
+  if(localStorage.getItem("memo")){
+     //let checked = localStorage.getItem("check");
+     let v = localStorage.getItem("memo");
+     //$("#box1").checkOn(checked);
+     $("#checkbox").css(v);
+  }
+  
+  }
+});
+</script>
+
+</head>
+<body>
+
+<header>
+  <h1>Foods</h1>
+</header>
+
+<main>
+  <h2>♦今日のやることリスト♦</h2>
+  
+  
+  <!--セレクトボックス-->
+  <div class="dropholder">
+  <p>Select</p>
+  <div class="dropdown">
+    <p><i class="fa fa-foursquare"></i> Please Rate</p>
+  </div>
+  <ul class="menu">
+    <li><i class="fa fa-thumbs-down"></i> Ugly</li>
+    <li><i class="fa fa-thumbs-up"></i> Not bad</li>
+    <li><i class="fa fa-bolt"></i> Ok it's good</li>
+    <li><i class="fa fa-star"></i> Very Nice works</li>
+    <li><i class="fa fa-heart"></i> Wow how you did it</li>
+  </ul>
+  </div>
+  
+  
+  
+ <form class="js-form-storage">
+  
+  <textarea id="text_area1"></textarea>
+  
+  <textarea id="text_area2"></textarea> 
+
+  <textarea id="text_area3"></textarea>
+    
+　 <textarea id="text_area4"></textarea>
+  
+   <textarea id="text_area5"></textarea>
+  
+  </form>
+  <!--<h2>ほしいものリスト</h2>
+  <textarea id ="text_area2"></textarea>-->
+  
+  <ul>
+    <li id="save">Save</li>
+    <li id="clear">Clear</li>
+  </ul>
+  <!--<button id="btn">今日の運勢</button>-->
+  </main>
+
+
+<footer id="site_map">
+   <aside>
+     <ul>
+       <li id="current"><a href="pigfood.html">登録</a></li>
+        <li><a href="index10.html">Profile</a></li>
+
+       <li><a href="lecture10.html">Lesson</a></li>
+  
+       <li><a href="portfolio10.html">Portfolio</a></li>
+
+     </ul>
+   </aside>
+ </footer>
+
+</body>
+
+</html>

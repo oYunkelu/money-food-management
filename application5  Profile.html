@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>アプリケーション</title>
+<!--<script src="jquery-2.1.3.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+<script src="app.js"></script>
+<!--<link rel="stylesheet" href="application2.css">-->
+  
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    /*background-color: #99FF66;*/
+}
+header {
+   background-color:  #99FF66;
+   padding: 10px;
+   text-align: center;
+}
+  
+#chartContainer {
+    position: relative;
+    margin-top: 60px;
+    margin-left: 10px;
+    /*margin-bottom: 50px;*/
+    /*padding: 10px;*/
+}  
+  
+p {
+   display: block;
+   position: absolute;
+   margin-top: 420px;
+   margin-left: 0 auto;
+   padding-top: 10px;
+   padding-left: 30px;
+   font-size: 80px; 
+   color: white;
+   text-align: left;
+   background-color: #FF6699;
+   /*border: solid 10px #FF99CC;
+   /*border-radius: 100px;*/
+   width: 800px;
+  }
+  
+#total {
+    /*position: left;*/
+    position: relative;
+    margin-top: 100px;
+    margin-left: 50px;
+    padding: 20px;
+    font-size: 100px;
+    color: white;
+    /*text-align: center;*/
+  }
+  
+.pigbody {
+    position: absolute;
+    /*position: left;*/
+    margin-top: 480px;
+    margin-left: 540px; 
+    z-index: 1;
+}
+.pigface {
+    position: absolute;
+    margin-top: 360px;
+    margin-left: 580px; 
+    z-index: 4;
+}
+.pigface2 {
+    position: absolute;
+    margin-top: 365px;
+    margin-left: 575px; 
+    z-index: 2;
+}
+/*.money {
+    position: absolute;
+    top: 0;
+    /*margin-top: 0 auto;*/
+    /*margin-left: 140px; /*130*/
+    /*z-index: 3;
+}*/
+  
+textarea {
+  /*display:table-cell;  /* 定義 */
+  float: right;
+  margin-top:  400;
+  margin-right: 45px;
+  padding-top:  0 auto;
+  padding-bottom: 10px;
+  
+  width: 80px;/*95*/
+  height: 70px;/*230*/
+  font-size:120%;
+  text-align: center;
+  
+  border: solid 4px #FFF;/*#FF6600*/
+  border-radius: 100px;/*角の丸み*/
+  /*box-shadow: 3px 3px 3px 1px #000;*/
+}
+  
+  
+#site_map{
+  margin-top: 800px;
+}
+footer li,footer a{
+  display: block;
+}
+footer li {
+  /*float: left;*/
+  margin: 100px;
+}
+footer a {
+	margin-left:300px;
+    margin-right:40px;
+	padding:30px;
+    text-align: center;
+	font-size: small;
+	color: #FFFFFF;
+    background-color: #FF6699;
+    /*border-top: 5px solid #FFFFFF;
+    border-bottom: 40px solid #FFFFFF;*/	
+}
+footer a:hover {
+	background-color: #FF6699;
+	opacity:0.5;
+}
+ 
+</style>
+  
+  
+<script>
+$(function(){
+  //この中に処理を記述 開始
+  /*$("#button.up").click(function() {
+    $(".money_10").css('position', 'relative')
+      .animate({
+        opacity: 'show',
+        top: 0
+      }, 1000);
+  });
+});*/
+let dataPlot = [
+    { label: "リンゴ",   y: 10 },
+    { label: "オレンジ", y: 15 },
+    { label: "バナナ",   y: 25 },
+    { label: "マンゴー", y: 30 },
+    { label: "グレープ", y: 28 }
+];
+   
+let chart = new CanvasJS.Chart("chartContainer", {
+    data: [{
+       // グラフの種類を設定する
+       type: 'column',
+       // グラフに描画するデータを設定する
+       dataPoints: dataPlot//ここにデータを渡す
+    }]
+});
+chart.render(); 
+  
+  
+  
+let money_sum = 0;
+$("#total").html(money_sum);
+  
+if(localStorage.getItem("memo1")){
+     let value1 = localStorage.getItem("memo1");
+     $("#text_area1").val(value1);
+  }
+
+ $(".money").click(function() {
+  $(".money").animate({marginTop: "+=500"}, 5000).queue;
+  
+if(localStorage.getItem("memo2")){
+     let value2 = localStorage.getItem("memo2");
+     $("#total").val(value2);
+      let result2 = Number($("#total").val());
+      //let money_sum = Number(str);
+      if ($.isNumeric(result2)) {
+      money_sum = money_sum + (result2);
+      } 
+      }
+      //$("#text2").html(money_sum);
+      $("#total").html(money_sum);
+});
+}); 
+
+</script>
+</head>
+<body>
+  <!--<div id="chartContainer"></div>-->
+<header>
+  <h1>Foods Report</h1>
+</header>
+
+<main>
+  <div id="chartContainer"></div>
+  <p>
+    Total<span id="total"></span>kcal
+  </p>
+  
+  <img class="pigbody" src="images/pigbody.gif" alt="gazou" width="270" height="270"z-index:1;>
+  <img class="pigface" src="images/pigface-.gif" alt="gazou" width="170" height="170" >
+  <img class="pigface2" src="images/pigface2-.gif" alt="gazou" width="180" height="150" >
+  
+  <div>
+    <div class="money"><img class="money_10" src="images/money_10.gif" alt="gazou" width="100" height="100" z-index:2;></div>  
+  </div>
+  
+  <form class="js-form-storage">
+    <textarea id="text_area1"></textarea>
+  </form>
+  
+  </main>
+
+  <footer id="site_map">
+   <aside>
+     <ul>
+       <li id="current"><a href="application3--.html">戻る</a></li>
+        <li><a href="index10.html">Profile</a></li>
+
+     </ul>
+   </aside>
+  </footer>
+
+</body>
+
+</html>

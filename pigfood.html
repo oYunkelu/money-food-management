@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>アプリケーション</title>
+<!--<script src="jquery-2.1.3.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!--<link rel="stylesheet" href="application2.css">-->
+  
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #99FF66;
+    width: 1000px;
+    height: 800px;
+}
+p {
+   position: left;
+   margin-top: 60px;
+   margin-left: 50px;
+   padding: 10px;
+   font-size: 25px; 
+   text-align: center;
+   background-color: #FF6699;
+   border: solid 10px #FF99CC;
+   border-radius: 100px;
+   width: 130px;
+   color: #000;
+  }
+  
+#total {
+    position: left;
+    margin-top: 60px;
+    margin-left: 0 auto;
+    padding: 20px;
+    font-size: 40px;
+    text-align: center;
+  }
+  
+.pigbody {
+    position: absolute;
+    /*position: left;*/
+    margin-top: 120px;/*200*/
+    margin-left: 130px;/*60*/ 
+    z-index: 1;/*1*/
+}
+.pigface {
+    position: absolute;
+    margin-top: 15px;/*95*/
+    margin-left: 175px; /*105*/
+    z-index: 4;/*4*/
+}
+.pigface2 {
+    position: absolute;
+    margin-top: 23px;/*101*/
+    margin-left: 230px;/*100*/ 
+    z-index: 2;/*2*/
+}
+.tomato {
+    position: absolute;
+    top: 0;
+    /*margin-top: 0 auto;*/
+    margin-left: 230px; /*130*//*140*/
+    z-index: 3;/*3*/
+}
+/*.tomato_1 {
+    position: absolute;
+    top: 500px;
+    /*margin-top: 0 auto;*/
+    /*margin-left: 300px; /*130*/
+    /*z-index: 5;/*5*/
+/*}*/
+.meat {
+    position: absolute;
+    top: 0;
+    /*margin-top: 0 auto;*/
+    margin-left: 220px; /*130*//*140*/
+    z-index: 2;/*3*/
+}
+
+.salada {
+    position: absolute;
+    top: 0;
+    /*margin-top: 0 auto;*/
+    margin-left: 230px; /*130*//*140*/
+    z-index: 2;/*3*/
+}
+
+  
+
+/*#horizon1 {
+    position: absolute;
+    top: 550px;
+    left: 260px;
+    width: 0px;
+    height: 1px;
+    background: #000;
+    z-index: 8;
+}*/
+
+#text1 {
+  position: absolute;
+  top:  500px;
+  margin-left: 350px;/*300*/
+  width: 84px;/*95*/
+  height: 80px;/*230*/
+  font-size:120%;
+  color: #000;
+  text-align: center;
+  border: solid 4px #FFF;/*#FF6600*/
+  background-color: white;
+  border-radius: 100px;/*角の丸み*/
+  padding: 10px;
+  text-align: center;
+  border-radius: 100px;
+  z-index: 6;/*5*/
+}
+#text2 {
+  position: absolute;
+  top: 540px;
+  margin-left: 375px;/*325*/
+  padding-top:  10px;
+  padding-bottom: 10px;
+  width: 40px;/*95*/
+  height: 20px;/*230*/
+  font-size:120%;
+  color: #000;
+  text-align: center;
+  z-index: 7;
+}
+#text4 {
+  position: absolute;
+  top:  550px;
+  margin-left: 60px;/*300*/
+  width: 84px;/*95*/
+  height: 80px;/*230*/
+  font-size:120%;
+  color: #000;
+  text-align: center;
+  border: solid 4px #FFF;/*#FF6600*/
+  background-color: white;
+  border-radius: 100px;/*角の丸み*/
+  padding: 10px;
+  text-align: center;
+  border-radius: 100px;
+  z-index: 6;/*5*/
+}
+#text5 {
+  position: absolute;
+  top: 550px;
+  margin-left: 80px;/*325*/
+  padding-top:  50px;
+  padding-bottom: 10px;
+  width: 40px;/*95*/
+  height: 20px;/*230*/
+  font-size:120%;
+  color: #000;
+  text-align: center;
+  z-index: 7;
+}
+  
+  
+#text7 {
+  position: absolute;
+  top:  380px;
+  margin-left: 50px;/*300*/
+  width: 84px;/*95*/
+  height: 80px;/*230*/
+  font-size:120%;
+  color: #000;
+  text-align: center;
+  border: solid 4px #FFF;/*#FF6600*/
+  background-color: white;
+  border-radius: 100px;/*角の丸み*/
+  padding: 10px;
+  text-align: center;
+  border-radius: 100px;
+  z-index: 6;/*5*/
+}
+#text8 {
+  position: absolute;
+  top: 420px;
+  margin-left: 70px;/*325*/
+  padding-top:  10px;
+  padding-bottom: 10px;
+  width: 40px;/*95*/
+  height: 20px;/*230*/
+  font-size:120%;
+  color: #000;
+  text-align: center;
+  z-index: 7;
+}
+
+
+  
+footer {
+   max-width: 1100px;
+   background-color: #fff;
+   width: 120%;
+   position: absolute;
+   top: 700px;
+   margin: -10px;
+   z-index: 3;
+}
+footer li{
+    display: table-cell;
+ 
+    padding:0;
+}
+  
+footer li,footer a{
+    
+    /*display: block;
+    /*position: absolute;*/
+    /*top: 370px;
+    /*margin-top: 10px;*/
+    
+    /*margin-right: 45px;*/
+    padding:5px;
+    /*background-color: hotpink;*/
+}
+/*footer a{
+  color: white;
+  text-align: center;
+  font-size: large; 
+  font-weight: bold;
+  /*background-color: #000;*/
+  /*text-decoration: none;
+} */
+  
+footer img {
+    margin-left: 17px;
+    padding: 20px;
+	background-color: none;
+	/*opacity:0.5;*/
+}
+
+footer #current:hover {
+    margin-left: 17px;
+    padding: 20px;
+	background-color: pink;
+	/*opacity:0.5;*/
+}
+footer #current2:hover {
+    margin-left: 17px;
+    padding: 20px;
+	background-color: #FFCC99;
+	/*opacity:0.5;*/
+}
+footer #current3:hover {
+    margin-left: 17px;
+    padding: 20px;
+	background-color: #CCFF99;
+	/*opacity:0.5;*/
+}
+footer #current4:hover {
+    margin-left: 17px;
+    padding: 20px;
+	background-color: #99FFFF;
+	/*opacity:0.5;*/
+}
+  
+footer #current3 {
+    margin-left: 17px;
+    padding: 20px;
+    background-color: #CCFF99;
+}
+  
+
+/*#site_map{
+  margin-top: 500px;
+  background-color: white;
+}
+footer {
+  border-top: 1px solid #778899;
+  /*background-color: white;*/
+/*}
+footer li,footer a{
+  display: block;
+}
+footer li {
+  float: left;
+  margin: 10px;
+}
+footer a {
+	margin-left:45px;
+    margin-right:45px;
+	padding:23px;
+    text-align: center;
+	font-size: large;
+	color: #FFFFFF;
+    background-color: hotpink;
+    border-top: 5px solid #FFFFFF;
+	border-bottom: 40px solid #FFFFFF;	
+}
+footer a:hover {
+	background-color: pink;
+}
+#current a {
+	background-color: pink;
+}  
+/*#site_map{
+  margin-top: 500px;
+}
+footer li,footer a{
+  display: block;
+}
+footer li {
+  /*float: left;*/
+  /*margin: 100px;
+}
+footer a {
+	margin-left:45px;/*300*/
+    /*margin-right:40px;/*40*/
+	/*padding:30px;
+    text-align: center;
+	font-size: small;
+	color: #FFFFFF;
+    background-color: #FF6699;
+    /*border-top: 5px solid #FFFFFF;
+    border-bottom: 40px solid #FFFFFF;*/	
+/*}
+footer a:hover {
+	background-color: #FF6699;
+	opacity:0.5;
+}*/
+/*.money_10 {
+    /*margin: 100px;*/
+    /*animation: img_box_9955 3s linear infinite;
+    transform-origin: 10% 10%;
+    margin: 1rem 0 !important;
+}
+
+  @keyframes img_box_9955 {
+    0% {
+      transform: translateY(0)
+    }
+    100% {
+      transform: translate(100px)
+    }
+  }*/
+</style>
+  
+<script>
+$(function(){
+  //$("#current").hide();
+  
+  $("main").hide().show(4000).animate(/*{top:100,left:100},*/1000);
+  //setTimeout(function(){
+  
+  //$("#current").fadeIn(2000);
+  //},3000);
+  //この中に処理を記述 開始
+  /*$("#button.up").click(function() {
+    $(".money_10").css('position', 'relative')
+      .animate({
+        opacity: 'show',
+        top: 0
+      }, 1000);
+  });
+});*/
+let money_sum = 0;
+$("#total").html(money_sum);
+$(".money__10").hide();
+$("#text1").hide();
+$("#text2").hide();
+$("#text4").hide();
+$("#text5").hide();
+$("#text7").hide();
+$("#text8").hide();
+  
+//if(localStorage.getItem("memo1")){
+     //let value1 = localStorage.getItem("memo1");
+     //$("#text_area1").val(value1);
+  //}
+
+ $(".tomato").click(function() {
+  $(".tomato").animate({marginTop: "+=500"}, 5000).animate({marginLeft: "280px"}, 2000).queue;
+ 
+  /*$(".money__10")./*slideDown(2000);show(4000)*//*fadeIn(2000).animate({top:450},2000);*/
+  
+if(localStorage.getItem("memo2")){
+     let value2 = localStorage.getItem("memo2");
+     $("#total").val(value2).show(2000);
+      let result2 = Number($("#total").val());
+      //let money_sum = Number(str);
+      if ($.isNumeric(result2)) {
+      money_sum = money_sum + (result2);
+      } 
+      }
+      //$("#text2").html(money_sum);
+      $("#total").html(money_sum);
+   
+   //winW = $(window).width();
+    //spped = 2000;
+    /*$('#horizon1').animate({
+        //width: winW
+        width: 100
+      //top:450,left:300
+    }, 2000)/*.animate({
+        height:100},2000)*//*;*/
+   
+   if(localStorage.getItem("memo1")){
+     let value1 = localStorage.getItem("memo1");
+    if(localStorage.getItem("memo2")){
+     let value2 = localStorage.getItem("memo2");
+     
+    $("#text1").val(value1).fadeIn(2000).animate({top:450},2000);
+     $("#text2").val(value2).fadeIn(2000).animate({top: 490},2000);
+    
+      
+     $("#text1").html(value1);
+     $("#text2").html((value2)+"kcal");
+  }
+  }
+ });
+      
+  $(".meat").click(function() {
+  $(".meat").animate({marginTop: "+=530"}, 5000).animate({marginLeft: "190px"}, 2000).queue;
+  
+  
+  if(localStorage.getItem("memo5")){
+     let value5 = localStorage.getItem("memo5");
+     $("#total").val(value5).show(2000);
+      let result2 = Number($("#total").val());
+      //let money_sum = Number(str);
+      if ($.isNumeric(result2)) {
+      money_sum = money_sum + (result2);
+      } 
+      }
+      //$("#text2").html(money_sum);
+      $("#total").html(money_sum);
+   
+   //winW = $(window).width();
+    //spped = 2000;
+    /*$('#horizon1').animate({
+        //width: winW
+        width: 100
+      //top:450,left:300
+    }, 2000)/*.animate({
+        height:100},2000)*//*;*/
+    
+    if(localStorage.getItem("memo4")){
+     let value4 = localStorage.getItem("memo4");
+    if(localStorage.getItem("memo5")){
+     let value5 = localStorage.getItem("memo5");
+     
+    $("#text4").val(value4).fadeIn(2000).animate({marginLeft: 90},2000);
+     $("#text5").val(value5).fadeIn(2000).animate({marginLeft: 110},2000);
+    
+      
+    $("#text4").html(value4);
+     $("#text5").html((value5)+"kcal");
+  }
+  }
+  
+});
+  
+  
+  $(".salada").click(function() {
+  $(".salada").animate({marginTop: "+=460"}, 5000).animate({marginLeft: "180px"}, 2000).queue;
+  
+  
+  if(localStorage.getItem("memo8")){
+     let value8 = localStorage.getItem("memo8");
+     $("#total").val(value8).show(2000);
+      let result2 = Number($("#total").val());
+      //let money_sum = Number(str);
+      if ($.isNumeric(result2)) {
+      money_sum = money_sum + (result2);
+      } 
+      }
+      //$("#text2").html(money_sum);
+      $("#total").html(money_sum);
+    
+    if(localStorage.getItem("memo7")){
+     let value7 = localStorage.getItem("memo7");
+    if(localStorage.getItem("memo8")){
+     let value8 = localStorage.getItem("memo8");
+     
+    $("#text7").val(value7).fadeIn(2000).animate({top: 440},2000);
+     $("#text8").val(value8).fadeIn(2000).animate({top: 480},2000);
+    
+    $("#text7").html(value7);
+     $("#text8").html((value8)+"kcal");
+  }
+  }
+  
+});
+  
+$("#current4").on("click",function() {
+    let result2 = $("#total").val();
+    localStorage.setItem("memo19",value19);
+});
+});
+
+</script>
+</head>
+<body>
+
+<main>
+  <p>
+    摂取<br><span id="total"></span><br>kcal
+  </p>
+  
+  <img class="pigbody" src="images/pigbody.gif" alt="gazou" width="270" height="270"z-index:1;>
+  <img class="pigface" src="images/pigface.gif" alt="gazou" width="170" height="170" >
+  <img class="pigface2" src="images/pigface2.gif" alt="gazou" width="65" height="25" >
+  
+  <img class="money__10" src="images/ten.jpg" alt="gazou" width="100" height="100">
+  
+  <div>
+    <div class="tomato"><img class="tomato-1" src="images/tomato.gif" alt="gazou" width="70" height="70"></div>  
+  </div>
+  
+  
+ <div>
+    <div class="salada"><img class="salada-1" src="images/salada.gif" alt="gazou" width="80" height="80"></div>  
+  </div>
+  
+  <div>
+    <div class="meat"><img class="meat-1" src="images/meat.gif" alt="gazou" width="90" height="90"></div>  
+  </div>
+  
+  
+    
+  
+  <!--<div>
+    <div class="money"><img class="money_10" src="images/money_10.gif" alt="gazou" width="80" height="80"></div>  
+  </div>-->
+  
+  <div id="horizon1"></div>
+  
+  <span id="text1"></span>
+  <span id="text2"></span>
+  <span id="text4"></span>
+  <span id="text5"></span>
+  <span id="text7"></span>
+  <span id="text8"></span>
+  
+  
+  <!--<form class="js-form-storage">
+    <text id="text_area1"></text>
+    <text id="text_area2"></text>
+  </form>-->
+  
+  <!--<div>  
+  <div class="100"></div>
+  <div class="500"></div>
+  <button>Start</button>
+  </div>-->
+  <!--<p>
+    <button id="button.up"></button>
+  </p>
+
+  <!--<ul>
+    <li id="save">Save</li>
+  </ul>
+  <!--<button id="btn">今日の運勢</button>-->
+   
+  </main>
+
+  <footer>
+   <aside>
+     <ul>
+        <li>
+         <a href="application2.html"><img id="current" src="images/footerHome.gif" width="60" height="60"></a></li>
+       
+       <li><a href="application3---.html"><img id="current2" src="images/footerDiary.gif" width="60" height="60"></a></li>
+
+       <li><a href="pigfood.html"><img id="current3" src="images/footerReport.gif" width="60" height="60"></a></li>
+  
+       <li><a href="application4--.html"><img id="current4" src="images/footerProfile.gif" width="60" height="60"></a></li>
+       <!--<li id="current"><a href="application3--.html">戻る</a></li>
+        <li><a href="index10.html">Profile</a></li>-->
+     </ul>
+   </aside>
+  </footer>
+
+</body>
+
+</html>

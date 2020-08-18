@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>アプリケーション</title>
+<!--<script src="jquery-2.1.3.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!--<link rel="stylesheet" href="application.css">-->
+<style>
+body {
+  width: 490px;
+  height: 700px;
+  background-color: aliceblue;
+}
+
+/*ul{
+  list-style:none;
+}*/
+li,a{
+    display: block;
+    position: absolute;
+    top: 370px;
+    /*margin-top: 10px;*/
+    margin-left: 130px;
+    margin-right: 45px;
+    padding:20px;
+    /*background-color: hotpink;*/
+}
+a{
+  color: white;
+  text-align: center;
+  font-size: xx-large; 
+  font-weight: bold;
+  background-color: hotpink;
+  text-decoration: none;
+  
+} 
+
+a:hover {
+	background-color: pink;
+	/*opacity:0.5;*/
+}
+  
+#current {
+  animation: current 3s infinite;
+}
+@keyframes current {
+  0% { transform:translateY(0px); }
+  50% { transform:translateY(20px); }
+  100% { transform:translateY(  0px); }
+}
+
+</style>
+  
+<script>
+  
+$(function(){
+  
+  $("#current").hide();
+  
+  $("main").hide().show(4000).animate(/*{top:100,left:100},*/1000);
+  setTimeout(function(){
+  
+  $("#current").fadeIn(2000);
+  },3000);
+  
+  //$("#btn").on("click",function(){
+    //let v = $("#size").val();
+    //$("#output").html(v);
+    //$("ul").append("<li>"+v+"</li>");
+  //});
+  
+  //$("#view").on("mouseenter",function(){
+    //$("#view").css("background-color","#ff00ff");
+ // });
+  
+  //この中に処理を記述 開始
+ 
+});
+</script>
+</head>
+<body>
+
+<main>
+  
+  <img src="images/start.gif" alt="gazou" width="1500" height="1000"> 
+  <div>
+    <!--<div class="fuwafuwa">-->
+    <li id="current">
+    <a href="application2.html">Start!</a>
+    <!--<span id="button1">Start!</span>-->
+    </li>
+    <!--</div>-->
+  </div>
+  
+   <!--<p>
+    <button id="button"><span id="restart">Start!
+      </span></button>
+  </p>
+  <!--<li id="current"><a href="application2.html">戻る</a></li>-->
+ 
+</main>
+
+
+</body>
+
+</html>
+
+<!--参考にしたコードを全てここに貼っておきます。
+このブタのキャラクターは自分で考えたキャラクターです！
+お金→ブタの貯金箱、食べ物→ふくよかなイメージはブタ、掛け合わせて考えました！
+
+[final.html]
+　①スタートボタンの動き→cssを利用
+　https://commte.net/6312
+
+[application2.html]
+　②ブタに触れる時の動き→cssを利用、①と同じ
+　https://commte.net/6312
+
+　③フッターのメニューボタン→cssを利用
+　https://www.e-sanwa.co.jp/sbs/column/20180323/
+
+　④背景色を二色で分割→cssを利用
+　https://qiita.com/C-3PHobbit/items/1b53d5dd792111ed5a78
+
+[application3---.html]
+　⑤日付、食べたもの、カロリーの記入→jQuery
+　授業の課題「memo」を主に利用、ローカルストレージ
+　
+　⑥記入欄の装飾→css
+　https://copypet.jp/692/
+
+[pigfood.html]
+　⑦食べ物やカロリー値が落ちてくるタイミング、落ち方→jQuery
+　http://black-flag.net/jquery/20110405-2878.html
+　https://noumenon-th.net/programming/2017/08/04/animate01/
+
+　⑧合計カロリー
+　授業の課題「vm」を主に利用
+
+　★こだわったところ★
+　⑨z-indexを利用して、ブタの画像を分割して重ね合わせて、貯金箱のようにブタの頭の穴から入っていくように工夫！！
+
+[application4--.html]
+  ⑩グラフ→css
+  https://qiita.com/shosho/items/23d3d97af32d4a9c2269
+　この参考資料の「10代」等の所を「span id」を利用して前ページで記入したデータが表示されるようにしています。
+本当はjQueryを利用して行いたかったのですが、どれも表示されませんでした。
+p.s.
+先輩に教えてもらって少しグラフのところ改善したのですが、いい感じなのですがうまく表示できませんでした（泣）
+何か他に改善点あれば教えていただきたいです。
+
+-->
+
+
+

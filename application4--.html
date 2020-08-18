@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>アプリケーション</title>
+<!--<script src="jquery-2.1.3.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+<!--<script src="app.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+
+<!--<link rel="stylesheet" href="application2.css">-->
+  
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FFCC99;
+}
+header {
+   background-color:  #99FF66;
+   padding: 10px;
+   text-align: center;
+}
+  
+ 
+  
+/*グラフ*/
+ .container {
+  display: flex;
+  background-color: white;
+}
+.label-vertical .label{
+  font-size: 13px;
+  line-height: 26px;
+  text-align: right;
+  padding-right: 30px;
+}
+.graph {
+  height: 287px;
+  width: 678px;
+  border: 1px solid #F0F0F0;
+  position: relative;
+  margin-top: 13px;
+  
+}
+.graph .bar:first-of-type {
+  margin-left: 29px;
+}
+.bar {
+  float: left;
+  text-align: center;
+  position: relative;
+  margin-left: 60px;
+  width: 25px;
+  background-color: #006400;
+}
+  
+ 
+
+hr {
+  border: none;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  margin: 0 auto;
+  background: #F0F0F0;
+}
+.label-horizontal {
+  display: flex;
+}
+.label-horizontal .label{
+  font-size: 12px;
+  margin-left: 60px;  
+  width: 25px;
+  text-align: center;
+  padding-top: 6px;
+}
+.label-horizontal .label:first-of-type{
+  margin-left: 29px;  
+} 
+/*グラフ*/
+  
+  
+  
+p {
+   display: block;
+   position: absolute;
+   margin-top: 62px;
+   margin-left: 0 auto;
+   padding-top: 10px;
+   padding-left: 30px;
+   font-size: 50px; 
+   color: white;
+   text-align: left;
+   background-color: #FF6699;
+   /*border: solid 10px #FF99CC;
+   /*border-radius: 100px;*/
+   width: 800px;
+  }
+  
+#total {
+    /*position: left;*/
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    font-size: 70px;/**100*/
+    color: white;
+    /*text-align: center;*/
+  }
+  
+.pigbody {
+    position: absolute;
+    /*position: left;*/
+    margin-top: 130px;
+    margin-left: 400px; 
+    z-index: 1;
+}
+.pigface {
+    position: absolute;
+    margin-top: 25px;/*360*/
+    margin-left: 442px; /*580*/
+    z-index: 4;
+}
+.pigface2 {
+    position: absolute;
+    margin-top: 32px;/*365*/
+    margin-left: 438px; /*575*/
+    z-index: 2;
+}
+/*.money {
+    position: absolute;
+    top: 0;
+    /*margin-top: 0 auto;*/
+    /*margin-left: 140px; /*130*/
+    /*z-index: 3;
+}*/
+  
+/*text1 {
+  /*display:table-cell;  /* 定義 */
+  /*float: right;
+  margin-top:  400;
+  margin-right: 45px;
+  padding-top:  0 auto;
+  padding-bottom: 10px;
+  
+  width: 80px;/*95*/
+  /*height: 70px;/*230*/
+  /*font-size:120%;
+  text-align: center;
+  
+  border: solid 4px #FFF;/*#FF6600*/
+  /*border-radius: 100px;/*角の丸み*/
+  /*box-shadow: 3px 3px 3px 1px #000;*/
+/*}*/
+ 
+  
+footer {
+   max-width: 1100px;
+   background-color: #fff;
+   width: 120%;
+   position: absolute;
+   top: 850px;
+   margin: -10px;
+   z-index: 4;
+}
+footer li{
+    display: table-cell;
+    padding:0;
+}
+  
+footer li,footer a{
+    padding:5px;
+}
+
+footer img {
+    margin-left: 17px;
+    padding: 20px;
+	background-color: none;
+	/*opacity:0.5;*/
+}
+
+footer #current:hover {
+    margin-left: 17px;
+    padding: 20px;
+	background-color: pink;
+	/*opacity:0.5;*/
+}
+footer #current2:hover {
+    margin-left: 17px;
+    padding: 20px;
+	background-color: #FFCC99;
+	/*opacity:0.5;*/
+}
+footer #current3:hover {
+    margin-left: 17px;
+    padding: 20px;
+	background-color: #CCFF99;
+	/*opacity:0.5;*/
+}
+footer #current4:hover {
+    margin-left: 17px;
+    padding: 20px;
+	background-color: #99FFFF;
+	/*opacity:0.5;*/
+}
+  
+footer #current4 {
+    margin-left: 17px;
+    padding: 20px;
+    background-color: #99FFFF;
+} 
+  
+</style>
+  
+  
+  
+<script>
+$(function(){
+  //この中に処理を記述 開始
+  /*$("#button.up").click(function() {
+    $(".money_10").css('position', 'relative')
+      .animate({
+        opacity: 'show',
+        top: 0
+      }, 1000);
+  });
+});*/
+
+/*if(localStorage.getItem("memo1")){
+     let value1 = localStorage.getItem("memo1");*/
+
+
+  
+let money_sum = 0;
+$("#total").html(money_sum);
+  
+
+ /*$(".money").click(function() {
+  $(".money").animate({marginTop: "+=500"}, 5000).queue;*/
+  
+if(localStorage.getItem("memo2")){
+     let value2 = localStorage.getItem("memo2");
+     $("#total").val(value2);
+      let result2 = Number($("#total").val());
+      //let money_sum = Number(str);
+      if ($.isNumeric(result2)) {
+      money_sum = money_sum + (result2);
+      } 
+      }
+  
+  if(localStorage.getItem("memo5")){
+     let value5 = localStorage.getItem("memo5");
+     $("#total").val(value5).show(2000);
+      let result2 = Number($("#total").val());
+      //let money_sum = Number(str);
+      if ($.isNumeric(result2)) {
+      money_sum = money_sum + (result2);
+      } 
+      }
+  
+   if(localStorage.getItem("memo8")){
+     let value8 = localStorage.getItem("memo8");
+     $("#total").val(value8).show(2000);
+      let result2 = Number($("#total").val());
+      //let money_sum = Number(str);
+      if ($.isNumeric(result2)) {
+      money_sum = money_sum + (result2);
+      } 
+      }
+      //$("#text2").html(money_sum);
+      $("#total").html(money_sum);
+  
+  if(localStorage.getItem("memo19")){
+     let value19 = localStorage.getItem("memo19");
+    
+    $("#total").html(value19);
+  }
+  if(localStorage.getItem("memo1")){
+     let value1 = localStorage.getItem("memo1");
+    
+    $("#text1").html(value1);
+  }
+  if(localStorage.getItem("memo4")){
+     let value4 = localStorage.getItem("memo4");
+    
+    $("#text4").html(value4);
+  }
+  if(localStorage.getItem("memo6")){
+     let value6 = localStorage.getItem("memo6");
+    
+    $("#text6").html(value6);
+  }
+  
+  
+  if(localStorage.getItem("memo2")){
+     let value2 = localStorage.getItem("memo2");
+     $("#text2").html(value2);
+      let result2 = Number(value2);
+    console.log(result2);
+  
+    $("#text2").css({'height':"${276/1000*result2}px", 'margin-top':"${276-276/1000*result2}px"});
+  }
+});
+
+
+</script>
+</head>
+<body>
+  <!--<div id="chartContainer"></div>-->
+<header>
+  <h1>Foods Report</h1>
+</header>
+
+<main>
+  
+  <!--グラフ-->
+  <div class="container">
+  <div class="label-vertical">
+    <div class="label">（kcal）</div>
+    <div class="label">1,000</div>
+    <div class="label">900</div>
+    <div class="label">800</div>
+    <div class="label">700</div>
+    <div class="label">600</div>
+    <div class="label">500</div>
+    <div class="label">400</div>
+    <div class="label">300</div>
+    <div class="label">200</div>
+    <div class="label">100</div>
+    <div class="label">0</div>  
+  </div>
+  <div class="inner">
+    <div class="graph">
+      <hr style="top: 26px;">
+      <hr style="top: 52px;">
+      <hr style="top: 78px;">
+      <hr style="top: 104px;">
+      <hr style="top: 130px;">
+      <hr style="top: 156px;">
+      <hr style="top: 182px;">
+      <hr style="top: 208px;">
+      <hr style="top: 234px;">
+      <hr style="top: 260px;">
+      <hr style="top: 286px;">
+      <!--<div class="bar" id="text2"></div>-->
+      <div class="bar" style="height: 165px; margin-top: 122px;"></div>
+      <div class="bar" style="height: 82px; margin-top: 203px;"></div>
+      <div class="bar" style="height: 200px; margin-top: 87px;"></div>
+      <!--<div class="bar" style="height: 166px; margin-top: 121px;"></div>--><!--165,122,82,203,200,87-->
+    </div>
+    <div class="label-horizontal">
+      <div class="label"><span id=text1></span></div>
+      <div class="label"><span id=text4></span></div>
+      <div class="label"><span id=text6></span></div>
+      <div class="label"><span id=text4></span></div>
+      <div class="label"><span id=text5></span></div>
+      <div class="label"><span id=text6></span></div>
+      <div class="label"><span id=text7></span></div>
+      <div class="label"><span id=text8></span></div>
+    </div>
+  </div>
+  
+</div>
+  <!--グラフ-->
+  
+  
+  <p>
+    Total<span id="total"></span>kcal
+  </p>
+  
+  <span id=text1></span>
+  <span id=text2></span>
+  
+  <img class="pigbody" src="images/pigbody.gif" alt="gazou" width="240" height="240"z-index:1;>
+  <img class="pigface" src="images/pigface-.gif" alt="gazou" width="170" height="170" >
+  <img class="pigface2" src="images/pigface2-.gif" alt="gazou" width="180" height="150" >
+  
+  <!--<div>
+    <div class="money"><img class="money_10" src="images/money_10.gif" alt="gazou" width="100" height="100" z-index:2;></div>  
+  </div>-->
+  
+  <!--<form class="js-form-storage">
+    <textarea id="text_area1"></textarea>
+  </form>-->
+  
+  </main>
+
+  <footer id="site_map">
+   <aside>
+     <ul>
+      <li><a href="application2.html"><img id="current" src="images/footerHome.gif" width="60" height="60"></a></li>
+       
+       <li><a href="application3---.html"><img id="current2" src="images/footerDiary.gif" width="60" height="60"></a></li>
+
+       <li><a href="pigfood.html"><img id="current3" src="images/footerReport.gif" width="60" height="60"></a></li>
+  
+       <li><a href="application4--.html"><img id="current4" src="images/footerProfile.gif" width="60" height="60"></a></li>
+     </ul>
+   </aside>
+  </footer>
+
+</body>
+
+</html>

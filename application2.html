@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>アプリケーション</title>
+<!--<script src="jquery-2.1.3.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!--<link rel="stylesheet" href="application2.css">-->
+<style>
+body {
+  /*background-color: orange;
+  background-position: left;*/  
+  /*background:linear-gradient(90deg,#99FF66 0%,#99FF66 32%,coral 20%,coral 100%); */
+  background:linear-gradient(90deg,#99FF66 0%,#99FF66 50%,coral 50%,coral 100%); 
+} 
+  
+main {
+  margin:auto;
+  padding:auto;
+  
+}
+
+p {
+   float: left;
+   position: absolute;
+   margin-top: 50px;
+}
+#food {
+   margin-left: 70px;
+   width: 84px;
+   height: 80px;
+   background-color: white;
+   border-radius: 100px;/*角の丸み*/
+   padding: 28px;
+   z-index: 4;/*5*/
+   font-size:150%;
+   color: #000;
+   text-align: center;
+   font-weight: bold;
+}
+#money {
+   margin-left: 400px;
+   width: 84px;
+   height: 80px;
+   background-color: white;
+   border-radius: 100px;/*角の丸み*/
+   padding: 28px;
+   z-index: 4;/*5*/
+   font-size:150%;
+   color: #000;
+   text-align: center;
+   font-weight: bold;
+}
+  
+div :hover{
+  animation: -food 2s infinite;
+  
+}
+@keyframes -food{
+  0% { transform:translateY(0px); }
+  50% { transform:translateY(30px); }
+  100% { transform:translateY(0px); }
+}
+  
+img {
+    float: left;
+} 
+.pigfood {
+    position: absolute;
+    margin-top: 155px;/*95*/
+    margin-left: 20px; /*105*/
+    z-index: 1;/*4*/ 
+} 
+.pigmoney {
+    position: absolute;
+    margin-top: 155px;/*95*/
+    margin-left: 350px; /*105*/
+    z-index: 2;/*4*/ 
+}  
+
+  
+footer {
+   max-width: 800px;
+   background-color: #fff;
+   width: 100%;
+   position: absolute;
+   top: 690px;
+   margin: -10px;
+   z-index: 3;
+}
+footer li{
+    display: table-cell;
+ 
+    padding:0;
+}
+  
+footer li,footer a{
+    
+    /*display: block;
+    /*position: absolute;*/
+    /*top: 370px;
+    /*margin-top: 10px;*/
+    
+    /*margin-right: 45px;*/
+    padding:5px;
+    /*background-color: hotpink;*/
+}
+/*footer a{
+  color: white;
+  text-align: center;
+  font-size: large; 
+  font-weight: bold;
+  /*background-color: #000;*/
+  /*text-decoration: none;
+} */
+  
+footer img {
+    margin-left: 17px;
+    padding: 20px;
+	background-color: none;
+	/*opacity:0.5;*/
+}
+
+#current:hover {
+    margin-left: 17px;
+    padding: 20px;
+	background-color: pink;
+	/*opacity:0.5;*/
+}
+#current2:hover {
+    margin-left: 17px;
+    padding: 20px;
+	background-color: #FFCC99;
+	/*opacity:0.5;*/
+}
+#current3:hover {
+    margin-left: 17px;
+    padding: 20px;
+	background-color: #CCFF99;
+	/*opacity:0.5;*/
+}
+#current4:hover {
+    margin-left: 17px;
+    padding: 20px;
+	background-color: #99FFFF;
+	/*opacity:0.5;*/
+}
+  
+#current {
+    margin-left: 17px;
+    padding: 20px;
+    background-color: pink;
+}
+  
+/*#current {
+  animation: current 3s infinite;
+}
+@keyframes current {
+  0% { transform:translateY(0px); }
+  50% { transform:translateY(20px); }
+  100% { transform:translateY(0px); }
+}*/
+
+</style>  
+  
+   
+<script>
+$(function(){
+  //この中に処理を記述 開始
+   //$("main").hide().show(4000).animate(/*{top:100,left:100},*/1000);
+  
+});
+</script>
+  
+</head>
+<body>
+
+<main>  
+  
+<div>
+  <a href="application3---.html">
+  <div class="-food">
+    <p><span id="food">Foods</span></p>
+    <img class="pigfood" src="images/pigfood.gif" alt="gazou" width="250" height="420">
+  </div>
+  </a>
+</div>
+ 
+<div>
+  <a href="application3---.html">
+  <div class="-money">
+    <p><span id="money">Money</span></p>
+    <img class="pigmoney" src="images/pigmoney.gif" alt="gazou" width="250" height="420">
+  </div>
+  </a>
+</div>
+  
+</main>
+  
+<footer>
+   <aside>
+     <ul>
+       <li>
+         <a href="application2.html"><img id="current" src="images/footerHome.gif" width="60" height="60"></a></li>
+       
+       <li><a href="application3---.html"><img id="current2" src="images/footerDiary.gif" width="60" height="60"></a></li>
+
+       <li><a href="pigfood.html"><img id="current3" src="images/footerReport.gif" width="60" height="60"></a></li>
+  
+       <li><a href="application4--.html"><img id="current4" src="images/footerProfile.gif" width="60" height="60"></a></li>
+     </ul>
+   </aside>
+</footer>
+  
+</body>
+
+</html>

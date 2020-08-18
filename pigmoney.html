@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>アプリケーション</title>
+<!--<script src="jquery-2.1.3.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!--<link rel="stylesheet" href="application2.css">-->
+  
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    
+    background-color: coral;
+}
+p {
+   position: left;
+   margin-top: 50px;
+   margin-left: 90px;
+   font-size: 25px; 
+   text-align: center;
+   background-color: dodgerblue;
+   border: solid 10px deepskyblue;
+   border-radius: 100px;
+   width: 130px;
+  }
+  
+#total {
+    position: left;
+    margin-top: 50px;
+    margin-left: 10px;
+    font-size: 35px;
+    text-align: center;
+  }
+  
+.pigbody {
+    position: absolute;
+    /*position: left;*/
+    margin-top: 200px;
+    margin-left: 60px; 
+    z-index: 1;
+}
+.pigface {
+    position: absolute;
+    margin-top: 95px;
+    margin-left: 105px; 
+    z-index: 4;
+}
+.pigface2 {
+    position: absolute;
+    margin-top: 101px;
+    margin-left: 100px; 
+    z-index: 2;
+}
+  
+
+.money {
+    position: absolute;
+    margin-top: 250px;
+    margin-left: 140px; /*130*/
+    z-index: 3;
+}
+  
+textarea{
+  /*display:table-cell;  /* 定義 */
+  float: right;
+  margin-top:  100;
+  margin-right: 45px;
+  padding-top:  0 auto;
+  padding-bottom: 10px;
+  
+  width: 80px;/*95*/
+  height: 70px;/*230*/
+  font-size:120%;
+  text-align: center;
+  
+  border: solid 4px #FFF;/*#FF6600*/
+  border-radius: 100px;/*角の丸み*/
+  /*box-shadow: 3px 3px 3px 1px #000;*/
+}
+  
+  
+#site_map{
+  margin-top: 500px;
+}
+footer li,footer a{
+  display: block;
+}
+footer li {
+  /*float: left;*/
+  margin: 100px;
+}
+footer a {
+	margin-left:300px;
+    margin-right:40px;
+	padding:30px;
+    text-align: center;
+	font-size: small;
+	color: #FFFFFF;
+    background-color: dodgerblue;
+    /*border-top: 5px solid #FFFFFF;
+    border-bottom: 40px solid #FFFFFF;*/	
+}
+footer a:hover {
+	background-color: dodgerblue;
+	opacity:0.5;
+}
+ 
+
+/*.money_10 {
+    /*margin: 100px;*/
+    /*animation: img_box_9955 3s linear infinite;
+    transform-origin: 10% 10%;
+    margin: 1rem 0 !important;
+}
+
+  @keyframes img_box_9955 {
+    0% {
+      transform: translateY(0)
+    }
+    100% {
+      transform: translate(100px)
+    }
+  }*/
+  
+
+</style>
+  
+  
+<script>
+  
+$(function(){
+  //この中に処理を記述 開始
+  /*$("#button.up").click(function() {
+    $(".money_10").css('position', 'relative')
+      .animate({
+        opacity: 'show',
+        top: 0
+      }, 1000);
+  });
+});*/
+let money_sum = 1500;
+$("#total").html(money_sum);
+  
+if(localStorage.getItem("memo1")){
+     let value1 = localStorage.getItem("memo1");
+     $("#text_area1").val(value1);
+  }
+
+ $(".money").click(function() {
+  $(".money").animate({marginTop: "-=400"}, 5000).queue;
+  
+if(localStorage.getItem("memo2")){
+     let value2 = localStorage.getItem("memo2");
+     $("#total").val(value2);
+      let result2 = Number($("#total").val());
+      //let money_sum = Number(str);
+      if ($.isNumeric(result2)) {
+      money_sum = money_sum - (result2);
+      } 
+      }
+      //$("#text2").html(money_sum);
+      $("#total").html((money_sum)+"円");
+});
+}); 
+
+</script>
+</head>
+<body>
+
+<main>
+  <p>
+    所持金額<br><span id="total"></span><br>円
+  </p>
+  
+  <img class="pigbody" src="images/pigbody.gif" alt="gazou" width="270" height="270"z-index:1;>
+  <img class="pigface" src="images/pigface-.gif" alt="gazou" width="170" height="170" >
+  <img class="pigface2" src="images/pigface2-.gif" alt="gazou" width="180" height="150" >
+  
+  <div>
+    <div class="money"><img class="money_10" src="images/money_10.gif" alt="gazou" width="100" height="100" z-index:2;></div>  
+  </div>
+  
+  <form class="js-form-storage">
+    <textarea id="text_area1"></textarea>
+  </form>
+  
+  <!--<div>  
+  <div class="100"></div>
+  <div class="500"></div>
+  <button>Start</button>
+  </div>-->
+  <!--<p>
+    <button id="button.up"></button>
+  </p>
+
+  <!--<ul>
+    <li id="save">Save</li>
+  </ul>
+  <!--<button id="btn">今日の運勢</button>-->
+  </main>
+
+  <footer id="site_map">
+   <aside>
+     <ul>
+       <li id="current"><a href="application3.html">戻る</a></li>
+        <li><a href="index10.html">Profile</a></li>
+
+     </ul>
+   </aside>
+  </footer>
+
+</body>
+
+</html>
